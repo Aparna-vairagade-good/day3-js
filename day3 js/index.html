@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>DAY3 INTERVIEW QOUTIONS</h1>
+    <h3>//Q1.What is the use of setTimeout</h3> <br>
+    The setTimeout() is a method inside the window object, it calls the specified function or <br>
+evaluates a JavaScript expression provided as a string after a given time period for only once. <br>
+We all have used alarms or reminders several times, this setTimeout() method also has the <br>
+same purpose in web applications. We use this to delay some kind of executions. <br> <br>
+Syntax: setTimeout(()=>{ <br>
+code  <br>
+}, time); <br>
+ <h3>//Q2.What is callback hell</h3> <br>
+ Callback Hell is a pattern with multiple nested callbacks which makes code hard to read and <br>
+ debug when dealing with asynchronous logic. The callback hell looks like a pyramid structure. <br> <br>
+ async1(function(){ <br>
+    async2(function(){ <br>
+        async3(function(){ <br>
+            async4(function(){ <br>
+                .... <br>
+            }); <br>
+        }); <br>
+    }); <br>
+}); <br>
+
+<h3>//Q3.What are promises and why do we need them?</h3> <br>
+A Promise is a proxy for a value not necessarily known when the promise is created.  <br>
+It allows you to associate handlers with an asynchronous action's eventual success value or failure . <br>
+<br>
+It allows you to associate handlers with an asynchronous action's eventual success value or failure reason.  <br>
+This lets asynchronous methods return values like synchronous methods: instead of immediately returning the final value, <br>
+the asynchronous method returns a promise to supply the value at some point in the future. <br> <br>
+
+                <div><img src="./promises.png"></div> <br>
+
+<h3>//Q4.What is promise chaining.</h3> <br>
+
+The process of executing a sequence of asynchronous tasks one after another using promises is <br>
+known as Promise chaining. Let's take an example of promise chaining for calculating the final result, <br> <br>
+
+new Promise(function(resolve, reject) { <br>
+
+    setTimeout(() => resolve(1), 1000); <br>
+}).then(function(result) { <br>
+    console.log(result); // 1  <br>
+    return result * 2; <br>
+}).then(function(result) { <br>
+    console.log(result); // 2  <br>
+    return result * 3;  <br>
+}).then(function(result) { <br>
+    console.log(result); // 6  <br>
+    return result * 4; <br>
+}); <br> <br>
+
+In the above handlers, the result is passed to the chain of .then() handlers with the below work flow  <br>
+1. The initial promise resolves in 1 second, <br>
+2. After that .then handler is called by logging the result(1) and then return a promise with <br>
+the value of result * 2. <br>
+3. After that the value passed to the next .then handler by logging the result(2) and return a <br>
+promise with result * 3. <br>
+4. Finally the value passed to the last .then handler by logging the result(6) and return a <br>
+promise with result * 4. <br>
+
+<h3>//Q5.What is the purpose of async/await keywords?</h3> <br>
+The async keyword turns a method into an async method, which allows you to use the await keyword in its body.  <br>
+ When the await keyword is applied, it suspends the calling method and yields control back to its caller until the awaited task is complete.  <br>
+ await can only be used inside an async method. <br>
+
+example: <br>
+function resolveAfter2Seconds() <br>
+return new Promise(resolve => <br>
+{ <br>
+    setTimeout(() => { <br>
+        resolve('resolved') <br>
+    }, 2000); <br>
+});  <br>
+} <br>
+async function asyncCall() { <br>
+    console.log('calling'); <br>
+    const result = await resolveAfter2Seconds(); <br>
+    console.log(result); <br>
+    // expected output: "resolved"  
+
+
+<h3>//Q6.What is the DOM?</h3> <br>
+The Document Object Model (DOM) is the data representation of the objects that comprise the <br>
+structure and content of a document on the web. <br> <br> <br>
+The Document Object Model (DOM) is a programming interface for web documents. It <br>
+represents the page so that programs can change the document structure, style, and content. <br>
+The DOM represents the document as nodes and objects; that way, programming languages can <br>
+interact with the page. <br>
+
+
+
+Example: <br>
+Write code to get 1st H1 element from a webpage using DOM <br>
+var result=document.getElementsByTagName("h1")[0]; <br>
+
+<h3>//Q7.Difference between undefined vs not defined vs NaN</h3> <br>
+Undefined : <br>
+undefined is a global variable that JavaScript creates at run time. JavaScript assigns undefined <br>
+to any variable that has been declared but not initialized. In other words, in a case where no <br>
+value has been explicitly assigned to the variable, JavaScript calls it undefined. <br> <br><br>
+Null : <br>
+It is one of JavaScript’s primitive data type and is treated as falsy for boolean operations.null is <br>
+an empty or non-existent value and null must be assigned. We use null when we want to <br>
+explicitly declare that a variable is empty. <br> <br> <br>
+ Not Defined : <br>
+A not defined is a variable that is not declared inside the code at a given point of time with <br>
+declaration keyword like var, let, or const. <br>
+
+
+
+
+</body>
+</html>
